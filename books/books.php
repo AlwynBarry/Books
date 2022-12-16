@@ -71,20 +71,20 @@ add_action( 'wp_enqueue_scripts', 'add_books_css' );
  * @since 0.1.0
  */
 function books_get_term_classes( $postid ) {
-	$postid = (int) $postid;
-	$categories = get_the_terms( $postid, 'books_category' );
-	$classes = array();
+  $postid = (int) $postid;
+  $categories = get_the_terms( $postid, 'books_category' );
+  $classes = array();
 
-	if ( $categories && ! is_wp_error( $categories ) ) {
-		$classes[] = 'books-category';
-		foreach ( $categories as $category ) {
-			if ( isset( $category->term_id ) ) {
-				$class = sanitize_html_class( $category->slug, $category->term_id );
-				$classes[] = 'books-category-' . $class;
-				$classes[] = 'books-category-' . $category->term_id;
-			}
-		}
-	}
-	$classes = join( ' ', $classes );
-	return $classes;
+  if ( $categories && ! is_wp_error( $categories ) ) {
+    $classes[] = 'books-category';
+    foreach ( $categories as $category ) {
+      if ( isset( $category->term_id ) ) {
+        $class = sanitize_html_class( $category->slug, $category->term_id );
+        $classes[] = 'books-category-' . $class;
+        $classes[] = 'books-category-' . $category->term_id;
+      }
+    }
+  }
+  $classes = join( ' ', $classes );
+  return $classes;
 }
