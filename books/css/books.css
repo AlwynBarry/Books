@@ -2,6 +2,7 @@ div.books {}
 
 div.books div.book {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: top;
 }
@@ -17,13 +18,14 @@ div.books div.book div.book-image-container {
 }
 
 div.books div.book div.book-details-container {
-  flex: 80%;
+  flex: 70%;
   margin-left: 1rem;
 }
 
 div.books div.book-edit-link {
-  float: right;
+  flex: 100%;
   font-size: 0.8rem;
+  text-align: right;
 }
 
 div.books div.book-edit-link a::after {
